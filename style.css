@@ -1,10 +1,24 @@
 table {
     border-collapse: collapse;
-    margin-top: 20px;
+    margin: auto;
 }
 
 td {
     width: 50px;
     height: 50px;
     border: 1px solid #333;
+}
+
+button
+{
+    display:  block;
+    margin: 20px auto;
+    padding: 8px 18px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px;
+    border: 2px solid #880d1e;
+    background-color: #ffb3c6;
+    color: #880d1e;
+    
 }

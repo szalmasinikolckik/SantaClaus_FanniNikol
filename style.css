@@ -1,12 +1,23 @@
 table {
     border-collapse: collapse;
     margin: auto;
+    border: 2px solid #880d1e;
+    height: 700px;
+    width: 500px;
 }
 
 td {
     width: 50px;
     height: 50px;
     border: 1px solid #333;
+    border: 2px solid #880d1e;
+    background-color: white;
+   
+    
+}
+
+tr {
+    border: 2px solid #880d1e;
 }
 
 button
@@ -20,6 +31,23 @@ button
     border: 2px solid #880d1e;
     background-color: #ffb3c6;
     color: #880d1e;
-   
+
+}
+
+body {
+    background-image: url(images/hatter2.jpg);
+    background-size: cover;
+    
     
 }
+
+table img {
+    margin-left: 5px;
+ 
+    
+}
+
+/* @media screen(max-width:) {
+    
+} */
+

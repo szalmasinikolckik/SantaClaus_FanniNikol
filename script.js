@@ -16,22 +16,49 @@ document.getElementById("generate-board").addEventListener("click", () => {
             if (rand < 0.10) {
                 const imgA = document.createElement("img");
                 imgA.src = "images/cookie.png"; 
-                imgA.width = 40; 
-                imgA.height = 40;
+                imgA.width = 45; 
+                imgA.height = 45;
                 td.appendChild(imgA);
             } else if (rand < 0.10 + 0.05) {
                 const imgB = document.createElement("img");
                 imgB.src = "images/milk.png";
-                imgB.width = 40; 
-                imgB.height = 40;
+                imgB.width = 45; 
+                imgB.height = 45;
                 td.appendChild(imgB);
             }
 
+            
+
             tr.appendChild(td); 
+
         }
 
         table.appendChild(tr); 
     }
 
     container.appendChild(table);
+
+    
 });
+
+const tr = document.createElement("tr");
+ const td = document.createElement("td");    
+table.addEventListener("click", () =>
+{
+    let i = e.target;
+    for (let index = 0; index < table.length; index++) {
+        if (e.target ) {
+            
+        }
+
+    }
+    const imgC = document.createElement("img");
+    imgC.src = "images/santakitty.png";
+    imgC.width = 45; 
+    imgC.height = 45;
+    td.appendChild(imgC)
+
+    tr.appendChild(td);
+    table.appendChild(tr);
+});
+

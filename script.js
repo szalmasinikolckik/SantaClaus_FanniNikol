@@ -6,59 +6,55 @@ document.getElementById("generate-board").addEventListener("click", () => {
     container.innerHTML = "";
 
     const table = document.createElement("table");
+    table.id = "myTable"; 
 
     for (let r = 0; r < rows; r++) {
         const tr = document.createElement("tr");
 
         for (let c = 0; c < cols; c++) {
-            const td = document.createElement("td");    
-            const rand = Math.random(); 
+            const td = document.createElement("td");
+            const rand = Math.random();
+
             if (rand < 0.10) {
                 const imgA = document.createElement("img");
-                imgA.src = "images/cookie.png"; 
-                imgA.width = 45; 
+                imgA.src = "images/cookie.png";
+                imgA.width = 45;
                 imgA.height = 45;
                 td.appendChild(imgA);
-            } else if (rand < 0.10 + 0.05) {
+
+            } else if (rand < 0.15) {
                 const imgB = document.createElement("img");
                 imgB.src = "images/milk.png";
-                imgB.width = 45; 
+                imgB.width = 45;
                 imgB.height = 45;
                 td.appendChild(imgB);
             }
 
-            
-
-            tr.appendChild(td); 
-
+            tr.appendChild(td);
         }
 
-        table.appendChild(tr); 
+        table.appendChild(tr);
     }
 
     container.appendChild(table);
 
+ 
+    table.addEventListener("click", (e) => {
+    const cell = e.target.closest("td"); 
+    if (!cell) return;
+
     
-});
-
-const tr = document.createElement("tr");
- const td = document.createElement("td");    
-table.addEventListener("click", () =>
-{
-    let i = e.target;
-    for (let index = 0; index < table.length; index++) {
-        if (e.target ) {
-            
-        }
-
+    if (cell.querySelector("img")) {
+        return;
     }
-    const imgC = document.createElement("img");
-    imgC.src = "images/santakitty.png";
-    imgC.width = 45; 
-    imgC.height = 45;
-    td.appendChild(imgC)
 
-    tr.appendChild(td);
-    table.appendChild(tr);
+   
+    const img = document.createElement("img");
+    img.src = "images/santakitty.png";
+    img.width = 45;
+    img.height = 45;
+
+    cell.appendChild(img);
 });
 
+});

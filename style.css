@@ -31,7 +31,6 @@ button
     border: 2px solid #880d1e;
     background-color: #ffb3c6;
     color: #880d1e;
-
 }
 
 body {
@@ -42,20 +41,36 @@ body {
 }
 
 table img {
-    margin-left: 5px;
- 
-    
+    width: 80%;
+    height: auto;
+    display: block;
+    margin: auto;
 }
+    
 
 .visited {
     background-color:  #ffb3c6; 
 }
 
-/* #moves-counter {
-    margin-left: 160px;
-    padding: 20px 10px;
-    
-} */
+
+#points-counter {
+    animation-name: pop;
+    animation-duration: 3s;
+}
+
+
+@keyframes pop {
+    0% {
+        transform: scale(1);
+    }
+    40% {
+        transform: scale(1.5);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
 
 #counters {
    display: flex;
@@ -64,8 +79,29 @@ table img {
    padding-bottom: 20px;
 }
 
+@media (max-width: 600px) {
+    table {
+        width: 95vw;
+    }
+    table td {
+       
+    }
+    button {
+        font-size: 14px;
+        padding: 6px 14px;
+    }
+    table img {
+        width: 90%;
+        height: auto;
+        display: block;
+        margin: auto;
+    }
+    #counters {
+        gap: 40px;
+        flex-wrap: wrap;
+    }
+}
 
-/* @media screen(max-width:) {
-    
-} */
+
+
 

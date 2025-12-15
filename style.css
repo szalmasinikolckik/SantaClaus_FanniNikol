@@ -47,6 +47,24 @@ table img {
     
 }
 
+.visited {
+    background-color:  #ffb3c6; 
+}
+
+/* #moves-counter {
+    margin-left: 160px;
+    padding: 20px 10px;
+    
+} */
+
+#counters {
+   display: flex;
+   justify-content: center;
+   gap: 180px;
+   padding-bottom: 20px;
+}
+
+
 /* @media screen(max-width:) {
     
 } */

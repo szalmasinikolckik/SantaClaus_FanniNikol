@@ -1,4 +1,4 @@
-let santaPlaced = false; 
+let santaCell = null; 
 
 document.getElementById("generate-board").addEventListener("click", () => {
     const rows = 10;
@@ -10,7 +10,7 @@ document.getElementById("generate-board").addEventListener("click", () => {
     const table = document.createElement("table");
     table.id = "myTable"; 
 
-    santaPlaced = false;
+    santaCell = null; // reseteli h az elozobe ne maradjon benne
 
     for (let r = 0; r < rows; r++) {
         const tr = document.createElement("tr");
@@ -44,13 +44,17 @@ document.getElementById("generate-board").addEventListener("click", () => {
 
     table.addEventListener("click", (e) => {
         const cell = e.target.closest("td"); 
-        if (!cell) return;
+        if (!cell) {
+            return;
+        }
 
-        
-        if (cell.querySelector("img")) return;
+        if (cell.querySelector("img")) {
+            return;
+        }
 
-        
-        if (santaPlaced) return;
+        if (santaCell !== null) { //ez miatt nem lehet tobbet placelni
+            return;
+        }
 
         const img = document.createElement("img");
         img.src = "images/santakitty.png";
@@ -58,6 +62,52 @@ document.getElementById("generate-board").addEventListener("click", () => {
         img.height = 45;
 
         cell.appendChild(img);
-        santaPlaced = true;
+        santaCell = cell; //lementi melyik cellaban van
+        santaCell.classList.add("visited");
+    });
+
+    document.addEventListener("keydown", (e) => {
+        if (santaCell === null) {
+            return;
+        } //ha nincs santakitty ne csinaljon semmit se
+
+        let row = santaCell.parentElement.rowIndex;
+        let col = santaCell.cellIndex;
+
+        if (e.key === "ArrowUp") {
+            row = row - 1;
+        }
+
+        if (e.key === "ArrowDown") {
+            row = row + 1;
+        }
+
+        if (e.key === "ArrowLeft") {
+            col = col - 1;
+        }
+
+        if (e.key === "ArrowRight") {
+            col = col + 1;
+        }
+
+        if (e.key !== "ArrowUp" && e.key !== "ArrowDown" && e.key !== "ArrowLeft" &&e.key !== "ArrowRight") 
+        {
+            return;
+        }
+
+        if (row < 0 || row >= rows || col < 0 || col >= cols) {
+            return;
+        }
+
+        const newCell = table.rows[row].cells[col];
+
+        if (newCell.querySelector("img")) {
+            return;
+        }
+
+        santaCell.classList.add("visited");
+        newCell.appendChild(santaCell.querySelector("img"));
+        santaCell = newCell;
+        santaCell.classList.add("visited");
     });
 });

@@ -1,3 +1,5 @@
+let santaPlaced = false; 
+
 document.getElementById("generate-board").addEventListener("click", () => {
     const rows = 10;
     const cols = 8;
@@ -7,6 +9,8 @@ document.getElementById("generate-board").addEventListener("click", () => {
 
     const table = document.createElement("table");
     table.id = "myTable"; 
+
+    santaPlaced = false;
 
     for (let r = 0; r < rows; r++) {
         const tr = document.createElement("tr");
@@ -38,23 +42,22 @@ document.getElementById("generate-board").addEventListener("click", () => {
 
     container.appendChild(table);
 
- 
     table.addEventListener("click", (e) => {
-    const cell = e.target.closest("td"); 
-    if (!cell) return;
+        const cell = e.target.closest("td"); 
+        if (!cell) return;
 
-    
-    if (cell.querySelector("img")) {
-        return;
-    }
+        
+        if (cell.querySelector("img")) return;
 
-   
-    const img = document.createElement("img");
-    img.src = "images/santakitty.png";
-    img.width = 45;
-    img.height = 45;
+        
+        if (santaPlaced) return;
 
-    cell.appendChild(img);
-});
+        const img = document.createElement("img");
+        img.src = "images/santakitty.png";
+        img.width = 45;
+        img.height = 45;
 
+        cell.appendChild(img);
+        santaPlaced = true;
+    });
 });

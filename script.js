@@ -1,10 +1,15 @@
 let santaCell = null; 
 let pont = 0;
+let lepesek = 10; 
+
 
 
 document.getElementById("generate-board").addEventListener("click", () => {
     pont = 0;
     document.getElementById("points-counter").textContent = "Pontok száma: 0";
+
+    document.getElementById("moves-counter").textContent = "Hátralévő lépések száma: " + lepesek;
+
 
     const rows = 10;
     const cols = 8;
@@ -74,6 +79,12 @@ document.getElementById("generate-board").addEventListener("click", () => {
 
 
 document.addEventListener("keydown", (e) => {
+    if (lepesek <= 0) return;
+
+    lepesek--; 
+    document.getElementById("moves-counter").textContent = "Hátralévő lépések száma: " + lepesek;
+
+
     if (santaCell === null) {
         return;
     } //ha nincs santakitty ne csinaljon semmit se

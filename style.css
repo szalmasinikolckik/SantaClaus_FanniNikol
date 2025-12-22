@@ -53,11 +53,6 @@ table img {
 }
 
 
-#points-counter {
-    animation-name: pop;
-    animation-duration: 3s;
-}
-
 
 @keyframes pop {
     0% {

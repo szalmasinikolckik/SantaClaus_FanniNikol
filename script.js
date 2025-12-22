@@ -79,10 +79,17 @@ document.getElementById("generate-board").addEventListener("click", () => {
 
 
 document.addEventListener("keydown", (e) => {
-    if (lepesek <= 0) return;
+    if (lepesek <= 0)
+    {
+        const pointsCounter = document.getElementById("points-counter");
+        pointsCounter.style.animation = "pop 1s forwards";
+        return;
+    };
+
 
     lepesek--; 
     document.getElementById("moves-counter").textContent = "Hátralévő lépések száma: " + lepesek;
+    
 
 
     if (santaCell === null) {

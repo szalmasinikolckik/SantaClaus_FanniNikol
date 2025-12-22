@@ -30,18 +30,18 @@ document.getElementById("generate-board").addEventListener("click", () => {
             const rand = Math.random();
 
             if (rand < 0.10) {
-                const imgA = document.createElement("img");
-                imgA.src = "images/cookie.png";
-                imgA.width = 45;
-                imgA.height = 45;
-                td.appendChild(imgA);
-                
-            } else if (rand < 0.15) {
                 const imgB = document.createElement("img");
                 imgB.src = "images/milk.png";
                 imgB.width = 45;
                 imgB.height = 45;
                 td.appendChild(imgB);
+                
+            } else if (rand < 0.15) {
+                const imgA = document.createElement("img");
+                imgA.src = "images/cookie.png";
+                imgA.width = 45;
+                imgA.height = 45;
+                td.appendChild(imgA);
             }
 
             tr.appendChild(td);
